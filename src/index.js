@@ -26,8 +26,8 @@ ready(() => {
   new GLTFLoader().load(`./${targetModel ? targetModel : defaultModel}.glb`, gltfObject => {
     if (gltfObject) {
       const lungParticles = new AniviveParticleMesh({
-        gltfObject,
-        size: 2
+        gltfObject, // the object returned from the gltf loader
+        size: 2 // size of particles
       })
       scene.add(lungParticles)
     }

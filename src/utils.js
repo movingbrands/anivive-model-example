@@ -2,6 +2,12 @@ export const ready = fn => {
   document.addEventListener('DOMContentLoaded', fn)
 }
 
+/**
+ * Collects all the meshes in a Scene and puts them into an array
+ * @param   {THREE.Scene} scene an instance of THREE.Scene
+ *
+ * @returns {array} flat array of meshes
+ */
 export const collectMeshesFromScene = scene => {
   const result = []
   scene.traverse(child => {
@@ -9,6 +15,12 @@ export const collectMeshesFromScene = scene => {
   })
   return result
 }
+/**
+ * Concatenates Float32Arrays
+ * @param   {array} arrays an array of Float32Arrays
+ *
+ * @returns {Float32Array}
+ */
 export const concatFloat32Arrays = (arrays) => {
   let totalLength = 0;
   for (let arr of arrays) {
