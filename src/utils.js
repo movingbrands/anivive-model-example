@@ -2,6 +2,13 @@ export const ready = fn => {
   document.addEventListener('DOMContentLoaded', fn)
 }
 
+export const collectMeshesFromScene = scene => {
+  const result = []
+  scene.traverse(child => {
+    if (child.type === 'Mesh') result.push(child)
+  })
+  return result
+}
 export const concatFloat32Arrays = (arrays) => {
   let totalLength = 0;
   for (let arr of arrays) {

@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "public": false,
+    "name": "anivive-model-example",
+    "alias": [
+        "anivive-model-example.movingbrands.now.sh"
+    ],
+    "scope": "movingbrands",
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build"
+        }
+    ],
+    "github": {
+        "enabled": true,
+        "autoAlias": true
+    }
+}

@@ -1,12 +1,12 @@
 import { Points, Float32BufferAttribute, BufferGeometry, PointsMaterial } from 'three'
-import { concatFloat32Arrays } from './utils'
+import { concatFloat32Arrays, collectMeshesFromScene } from './utils'
 
 // this helper merges all the vertices of the children in a GLTF object 
 // and returns then in a single THREE.BufferGeometry
-const gltfObjectToFloat32ArrayGeometry = ({ scene: { children } }) => {
+const gltfObjectToFloat32ArrayGeometry = ({ scene }) => {
   const geometry = new BufferGeometry()
   const positions = concatFloat32Arrays(
-    children.map(child => child.geometry.attributes.position.array)
+    collectMeshesFromScene(scene).map(child => child.geometry.attributes.position.array)
   )
 
   geometry.addAttribute('position', new Float32BufferAttribute(positions, 3))
