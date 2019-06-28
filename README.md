@@ -6,7 +6,7 @@
 * [Virus](https://anivive-model-example.movingbrands.now.sh/?model=virus)
 
 ## About
-This repository shows how you might load a GLTF/GLB 3D model and render it as particles using three.js. It contains a custom THREE class, [AniviveParticleMesh](./src/AniviveParticleMesh.js), which is created using a GLTF object. The children returned from the loader, converted into raw point data and used to create an instance of [THREE.Points](https://threejs.org/docs/#api/en/objects/Points).
+This repository shows how you might load a GLTF/GLB 3D model and render it as particles using three.js. It contains a custom THREE class, [AniviveParticleMesh](./src/AniviveParticleMesh.js), which is created using a GLTF object. The object returned from the GLTFLoader is converted into raw point data and used to create an instance of [THREE.Points](https://threejs.org/docs/#api/en/objects/Points).
 
 ```js
 // import the module
@@ -50,4 +50,4 @@ This command runs a local live reload server and typically hosts the site at [ht
 npm run build
 ```
 
-This command builds the JS and outputs a static app to the `/build` directory.
+This command builds the JS and outputs a static app to the `/dist` directory.
