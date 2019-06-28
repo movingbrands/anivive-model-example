@@ -24,7 +24,9 @@ ready(() => {
   const targetModel = urlParams.get('model')
 
   new GLTFLoader().load(`./${targetModel ? targetModel : defaultModel}.glb`, gltfObject => {
-    const lungParticles = new AniviveParticleMesh(gltfObject)
-    scene.add(lungParticles)
+    if (gltfObject) {
+      const lungParticles = new AniviveParticleMesh(gltfObject)
+      scene.add(lungParticles)
+    }
   })
 })
