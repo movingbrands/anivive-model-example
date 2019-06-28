@@ -4,7 +4,7 @@ export const ready = fn => {
 
 /**
  * Collects all the meshes in a Scene and puts them into an array
- * @param   {THREE.Scene} scene an instance of THREE.Scene
+ * @param {THREE.Scene} scene an instance of THREE.Scene
  *
  * @returns {array} flat array of meshes
  */
@@ -17,7 +17,7 @@ export const collectMeshesFromScene = scene => {
 }
 /**
  * Concatenates Float32Arrays
- * @param   {array} arrays an array of Float32Arrays
+ * @param {array} arrays an array of Float32Arrays
  *
  * @returns {Float32Array}
  */

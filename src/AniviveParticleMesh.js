@@ -16,8 +16,8 @@ const gltfObjectToFloat32ArrayGeometry = ({ scene }) => {
 
 /**
  * 
-* @class AniviveParticleMesh 
- * custom AniviveParticleMesh object expects a GLTF object, whose children
+ * @class AniviveParticleMesh 
+ * Renders a particle mesh. Expects a GLTF object, whose children
  * are converted into raw point data and used to create an instance of THREE.Points
  *
  * @author Toby Milner-Gulland / https://github.com/movingbrands
