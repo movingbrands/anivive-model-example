@@ -23,9 +23,9 @@ new GLTFLoader().load('./lungs.glb', gltfObject => {
 This repository also includes assets in GLTF binary (.glb) format which have been formatted for use on the web.
 
 
-* [Lungs (lungs.glb)](./assets/lungs.glb)
-* [Platelets (platelets.glb)](./assets/platelets.glb)
-* [Virus (virus.glb)](./assets/virus.glb)
+* [Lungs (lungs.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/lungs.glb)
+* [Platelets (platelets.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/platelets.glb)
+* [Virus (virus.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/virus.glb)
 
 ## Getting started
 
