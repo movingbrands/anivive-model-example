@@ -13,9 +13,9 @@ This repository shows how you might load a GLTF/GLB 3D model and render it as pa
 import AniviveParticleMesh from './AniviveParticleMesh';
 
 // load our GLTF binary
-new GLTFLoader().load('virus.glb', gltfObject => {
+new GLTFLoader().load('virus.glb', result => {
   const lungParticles = new AniviveParticleMesh({
-    gltfObject, // the object returned from the gltf loader
+    gltfObject: result, // the object returned from the gltf loader
     size: 2 // size of particles
   })
   scene.add(lungParticles)
