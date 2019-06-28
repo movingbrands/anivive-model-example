@@ -17,8 +17,16 @@ new GLTFLoader().load('./lungs.glb', gltfObject => {
   lungParticles.position.x = 150
   scene.add(lungParticles)
 })
-
 ```
+
+## 3D assets
+This repository also includes assets in GLTF binary (.glb) format which have been formatted for use on the web.
+
+
+* [Lungs (lungs.glb)](./assets/lungs.glb)
+* [Platelets (platelets.glb)](./assets/platelets.glb)
+* [Virus (virus.glb)](./assets/virus.glb)
+
 ## Getting started
 
 ```bash
