@@ -1,9 +1,9 @@
 # Anivive Particle Example
 
 ## Examples
-* [https://anivive-model-example.movingbrands.now.sh/?model=lungs](Lungs)
-* [https://anivive-model-example.movingbrands.now.sh/?model=platelets](Platelets)
-* [https://anivive-model-example.movingbrands.now.sh/?model=virus](Virus)
+* [Lungs](https://anivive-model-example.movingbrands.now.sh/?model=lungs)
+* [Platelets](https://anivive-model-example.movingbrands.now.sh/?model=platelets)
+* [Virus](https://anivive-model-example.movingbrands.now.sh/?model=virus)
 
 ## About
 This repository shows how you might load a GLTF/GLB 3D model and render it as particles using three.js. It contains a custom THREE class, [AniviveParticleMesh](./src/AniviveParticleMesh.js), which is created using a GLTF object. The children returned from the loader, converted into raw point data and used to create an instance of [THREE.Points](https://threejs.org/docs/#api/en/objects/Points).
