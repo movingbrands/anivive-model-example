@@ -9,6 +9,9 @@
 This repository shows how you might load a GLTF/GLB 3D model and render it as particles using three.js. It contains a custom THREE class, [AniviveParticleMesh](./src/AniviveParticleMesh.js), which is created using a GLTF object. The children returned from the loader, converted into raw point data and used to create an instance of [THREE.Points](https://threejs.org/docs/#api/en/objects/Points).
 
 ```js
+// import the module
+import AniviveParticleMesh from './AniviveParticleMesh';
+
 // load our GLTF binary
 new GLTFLoader().load('virus.glb', gltfObject => {
   const lungParticles = new AniviveParticleMesh({
