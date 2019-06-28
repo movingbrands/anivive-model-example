@@ -1,4 +1,4 @@
-import { Points, Float32BufferAttribute, BufferGeometry, PointsMaterial } from 'three'
+import { Points, Float32BufferAttribute, BufferGeometry, PointsMaterial, Color } from 'three'
 import { concatFloat32Arrays, collectMeshesFromScene } from './utils'
 
 // this helper merges all the vertices of the children in a GLTF object 
@@ -16,17 +16,24 @@ const gltfObjectToFloat32ArrayGeometry = ({ scene }) => {
 // custom AniviveParticleMesh object expects a GLTF object, whose children
 // are converted into raw point data and used to create an instance of THREE.Points
 export default class AniviveParticleMesh extends Points {
-  constructor(gltfObject) {
+  constructor({
+    gltfObject,
+    size = 2,
+    transparent = true,
+    alphaTest = 0.5,
+    sizeAttenuation = false,
+    color = new Color(0x000000)
+  }) {
     super(
       gltfObjectToFloat32ArrayGeometry(gltfObject),
       new PointsMaterial({
-        size: 2,
-        sizeAttenuation: false,
-        alphaTest: 0.5,
-        transparent: true
+        size,
+        sizeAttenuation,
+        alphaTest,
+        transparent
       })
     )
-    this.material.color.setHSL(0, 0, 0)
+    this.material.color.copy(color)
   }
   // this method provides a utility to update the object every frame
   // if required for animation or similar
