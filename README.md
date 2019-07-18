@@ -57,10 +57,16 @@ This repository also includes assets in GLTF binary (.glb) format which have bee
 * [Dog (dog.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/dog.glb)
 * [Cat (cat.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/cat.glb)
 
-### Creating new 3D assets (from OBJ)
-
-#### Principles
+### Principles
 * Aim to keep all 3d files below 500kb – the smaller the better. For the particle mesh, for example, this might means using 3d artwork with fewer than 10000 verts as a starting point.
+* Avoid using very large (>2048px) textures as these will affect GPU performance and loading time.
+* Bundling as many assets as possible into .glb can help with overall loading time.
+* Be sparing in use of [MeshStandardMaterial](https://threejs.org/docs/#api/en/materials/MeshStandardMaterial) ([AniviveStandardMesh](./src/objects/AniviveStandardMesh.js) is derived from this).
+* Shadows and dynamic lighting tend to be expensive and a texture-baking approach (as described below) often gives better performance.
+* The [detect-gpu](https://github.com/TimvanScherpenzeel/detect-gpu) library can be a useful resource for providing tiered versions of the experience depending on the user's device capabilities.
+
+
+### Creating new 3D assets (from OBJ)
 
 #### Process
 1. All normals and material properties aren't needed and can be stripped from the model.
@@ -82,7 +88,7 @@ This repository also includes assets in GLTF binary (.glb) format which have bee
 #### More complex lighting
 The best approach for more complex shadows and lighting involves 'baking' textures in Blender or Maya rather than rendering them programmatically using the PBR-style [AniviveStandardMesh](./src/objects/AniviveStandardMesh.js) shown above. 
 
-Using this approach you would design all the core appearance and lighting in 3D software, load its elements in three.js and use the [AniviveStandardMesh](./src/objects/AniviveStandardMesh.js) in situations where you need animation or interactivity with the scene.
+Using this approach you would design and export all the core appearance and lighting in 3D software, load its elements in three.js and use the [AniviveStandardMesh](./src/objects/AniviveStandardMesh.js) in situations where you need animation or interactivity with the scene.
 
 ##### Example
 [This example](https://threejs.org/examples/#webgl_materials_lightmap) shows shadows baked into the surfaces of the scene's geometry. The assets used are available [here](https://github.com/mrdoob/three.js/tree/master/examples/models/json/lightmap). The image below shows the texture with detailed shadows:
