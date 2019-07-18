@@ -1,9 +1,9 @@
-import { Points, Float32BufferAttribute, BufferGeometry, PointsMaterial, Color } from 'three'
-import { concatFloat32Arrays, collectMeshesFromScene } from './utils'
+import { Points, Float32BufferAttribute, BufferGeometry, PointsMaterial, Color, Object3D } from 'three'
+import { concatFloat32Arrays, collectMeshesFromScene, randomPointsInBufferGeometry } from '../utils'
 
 // this helper merges all the vertices of the children in a GLTF object 
 // and returns then in a single THREE.BufferGeometry
-const gltfObjectToFloat32ArrayGeometry = ({ scene }) => {
+const gltfObjectToBufferGeometry = ({ scene }, distributed = false) => {
   const geometry = new BufferGeometry()
   const positions = concatFloat32Arrays(
     collectMeshesFromScene(scene).map(child => child.geometry.attributes.position.array)
@@ -12,7 +12,6 @@ const gltfObjectToFloat32ArrayGeometry = ({ scene }) => {
   geometry.addAttribute('position', new Float32BufferAttribute(positions, 3))
   return geometry
 }
-
 
 /**
  * 
@@ -29,17 +28,20 @@ const gltfObjectToFloat32ArrayGeometry = ({ scene }) => {
  * @param {boolean} sizeAttenuation whether particles change in size based on distance from camera
  * @param {THREE.Color} color particles color
  */
-export default class AniviveParticleMesh extends Points {
+export class AniviveParticleMesh extends Object3D {
   constructor({
     gltfObject,
     size = 2,
     transparent = true,
     alphaTest = 0.5,
     sizeAttenuation = false,
+    distributed = false,
+    particleCount = 10000,
     color = new Color(0x000000)
   }) {
-    super(
-      gltfObjectToFloat32ArrayGeometry(gltfObject),
+    super()
+    const particles = new Points(
+      gltfObjectToBufferGeometry(gltfObject),
       new PointsMaterial({
         size,
         sizeAttenuation,
@@ -47,7 +49,8 @@ export default class AniviveParticleMesh extends Points {
         transparent
       })
     )
-    this.material.color.copy(color)
+    this.add(particles)
+    particles.material.color.copy(color)
   }
   // this method provides a utility to update the object every frame
   // if required for animation or similar
@@ -55,4 +58,3 @@ export default class AniviveParticleMesh extends Points {
     console.log(dt)
   }
 }
-
