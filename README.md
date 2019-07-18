@@ -68,6 +68,9 @@ This repository also includes assets in GLTF binary (.glb) format which have bee
 
 ### Creating 3D assets
 * Blender: built-in support for importing and exporting .gltf/.glb files
+
+	![Blender GLTF export](./guide/blender-gltf-export.png)
+
 * Cinema4D: [Cinema 4D glTF Exporter](https://labs.maxon.net/?p=3360)
 
 ### Converting 3D assets (from OBJ)
