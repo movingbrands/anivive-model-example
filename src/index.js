@@ -7,7 +7,7 @@ import GLTFLoader from './loaders/GLTFLoader'
 import * as aniviveMeshTypes from './objects'
 
 const defaults = {
-  model: "lungs",
+  model: "dogs",
   type: "AniviveStandardMesh",
   smooth: true,
   background: "B1B4B4",
