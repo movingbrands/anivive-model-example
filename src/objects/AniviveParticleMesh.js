@@ -3,12 +3,21 @@ import { concatFloat32Arrays, collectMeshesFromScene, randomPointsInBufferGeomet
 
 // this helper merges all the vertices of the children in a GLTF object 
 // and returns then in a single THREE.BufferGeometry
-const gltfObjectToBufferGeometry = ({ scene }, distributed = false) => {
+const gltfObjectToBufferGeometry = ({ scene }) => {
   const geometry = new BufferGeometry()
   const positions = concatFloat32Arrays(
     collectMeshesFromScene(scene).map(child => child.geometry.attributes.position.array)
   )
 
+  geometry.addAttribute('position', new Float32BufferAttribute(positions, 3))
+  return geometry
+}
+
+// this is an experimental example showing how you distribute particles evenly
+// across the surface of a model (to avoid clustering at detailed areas of the geometry)
+const childToDistributedPoints = (child, particleCount) => {
+  const geometry = new BufferGeometry()
+  const positions = randomPointsInBufferGeometry(child.geometry, particleCount)
   geometry.addAttribute('position', new Float32BufferAttribute(positions, 3))
   return geometry
 }
@@ -35,13 +44,11 @@ export class AniviveParticleMesh extends Object3D {
     transparent = true,
     alphaTest = 0.5,
     sizeAttenuation = false,
-    distributed = false,
-    particleCount = 10000,
     color = new Color(0x000000)
   }) {
     super()
     const particles = new Points(
-      gltfObjectToBufferGeometry(gltfObject),
+      gltfObjectToBufferGeometry(gltfObject, distributed, particleCount),
       new PointsMaterial({
         size,
         sizeAttenuation,
@@ -51,6 +58,7 @@ export class AniviveParticleMesh extends Object3D {
     )
     this.add(particles)
     particles.material.color.copy(color)
+
   }
   // this method provides a utility to update the object every frame
   // if required for animation or similar

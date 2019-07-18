@@ -1,13 +1,13 @@
 import * as THREE from 'three'
 import threeOrbitViewer from 'three-orbit-viewer'
 
-import { ready, createSpotlight } from './utils'
+import { ready, createSpotlight, createPointLight } from './utils'
 import GLTFLoader from './loaders/GLTFLoader'
 
 import * as aniviveMeshTypes from './objects'
 
 const defaults = {
-  model: "dogs",
+  model: "dog",
   type: "AniviveStandardMesh",
   smooth: true,
   background: "B1B4B4",
@@ -48,7 +48,7 @@ ready(() => {
 
       const TargetMeshType = aniviveMeshTypes[type] || aniviveMeshTypes[defaults.type]
 
-      const mesh = new TargetMeshType({ gltfObject, smooth, distributed: true })
+      const mesh = new TargetMeshType({ gltfObject, smooth })
 
       scene.add(mesh)
       mesh.scale.set(scale, scale, scale)

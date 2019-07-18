@@ -61,7 +61,7 @@ export const createPointLight = ({
 }) => {
   const p = new PointLight(color, intensity, distance, decay)
   p.position.set(position.x, position.y, position.z)
-  return s
+  return p
 }
 
 /**
@@ -188,9 +188,7 @@ export const randomPointsInBufferGeometry = (geometry, n) => {
 
   }
 
-  const resultGeometry = new BufferGeometry()
-  resultGeometry.addAttribute('position', new Float32BufferAttribute(result, 3))
-  return resultGeometry
+  return result
 }
 
 // Get triangle area (half of parallelogram)
