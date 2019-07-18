@@ -35,12 +35,12 @@ This repository also includes assets in GLTF binary (.glb) format which have bee
 2. Convert to GLTF:
 	* with command line using [obj2gltf](https://github.com/AnalyticalGraphicsInc/obj2gltf):
 	
-	```bash
-	npm install -g obj2gltf
-	obj2gltf -i model.obj -o model.glb
-	```
+		```bash
+		npm install -g obj2gltf
+		obj2gltf -i model.obj -o model.glb
+		```
 
-	* Using [cesiumjs.org/convertModel](https://cesiumjs.org/convertModel/) to drop OBJ file in and convert to .glb.
+	* Using [cesiumjs.org/convertModel](https://cesiumjs.org/convertModel/)
 
 ## Getting started
 
