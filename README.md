@@ -25,10 +25,22 @@ new GLTFLoader().load('virus.glb', result => {
 ## 3D assets
 This repository also includes assets in GLTF binary (.glb) format which have been formatted for use on the web.
 
-
+### Included assets
 * [Lungs (lungs.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/lungs.glb)
 * [Platelets (platelets.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/platelets.glb)
 * [Virus (virus.glb)](https://github.com/movingbrands/anivive-model-example/raw/prototype/assets/virus.glb)
+
+### Creating new 3D assets
+1. All normals and material properties aren't needed and can be stripped from the model.
+2. Convert to GLTF:
+	* with command line using [obj2gltf](https://github.com/AnalyticalGraphicsInc/obj2gltf):
+	
+	```bash
+	npm install -g obj2gltf
+	obj2gltf -i model.obj -o model.glb
+	```
+
+	* Using [cesiumjs.org/convertModel](https://cesiumjs.org/convertModel/) to drop OBJ file in and convert to .glb.
 
 ## Getting started
 
