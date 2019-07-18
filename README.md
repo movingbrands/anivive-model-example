@@ -66,7 +66,11 @@ This repository also includes assets in GLTF binary (.glb) format which have bee
 * The [detect-gpu](https://github.com/TimvanScherpenzeel/detect-gpu) library can be a useful resource for providing tiered versions of the experience depending on the user's device capabilities.
 
 
-### Creating new 3D assets (from OBJ)
+### Creating 3D assets
+* Blender: built-in support for importing and exporting .gltf/.glb files
+* Cinema4D: [Cinema 4D glTF Exporter](https://labs.maxon.net/?p=3360)
+
+### Converting 3D assets (from OBJ)
 
 #### Process
 1. All normals and material properties aren't needed and can be stripped from the model.
@@ -85,17 +89,17 @@ This repository also includes assets in GLTF binary (.glb) format which have bee
 
 	* Using [cesiumjs.org/convertModel](https://cesiumjs.org/convertModel/)
 
-#### More complex lighting
+### Complex lighting and scenes
 The best approach for more complex shadows and lighting involves 'baking' textures in Blender or Maya rather than rendering them programmatically using the PBR-style [AniviveStandardMesh](./src/objects/AniviveStandardMesh.js) shown above. 
 
 Using this approach you would design and export all the core appearance and lighting in 3D software, load its elements in three.js and use the [AniviveStandardMesh](./src/objects/AniviveStandardMesh.js) in situations where you need animation or interactivity with the scene.
 
-##### Example
+#### Example
 [This example](https://threejs.org/examples/#webgl_materials_lightmap) shows shadows baked into the surfaces of the scene's geometry. The assets used are available [here](https://github.com/mrdoob/three.js/tree/master/examples/models/json/lightmap). The image below shows the texture with detailed shadows:
 
 ![Shadow example](https://github.com/mrdoob/three.js/raw/master/examples/models/json/lightmap/lightmap-ao-shadow.png)
 
-##### Examples and guides on baking textures
+#### Examples and guides on baking textures
 * [How do you bake ambient occlusion for a model?
 ](https://blender.stackexchange.com/questions/13956/how-do-you-bake-ambient-occlusion-for-a-model)
 * [Baked Cycles Lightmaps in Blender 2](http://charliehoey.com/threejs-demos/cycles-baking-2.html)
