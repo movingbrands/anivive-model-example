@@ -73,6 +73,9 @@ This repository also includes assets in GLTF binary (.glb) format which have bee
 
 * Cinema4D: [Cinema 4D glTF Exporter](https://labs.maxon.net/?p=3360)
 
+### Testing GLTF files
+[gltf-viewer](https://gltf-viewer.donmccurdy.com/) can be used to quickly test exported GLTF files.
+
 ### Converting 3D assets (from OBJ)
 
 #### Process
