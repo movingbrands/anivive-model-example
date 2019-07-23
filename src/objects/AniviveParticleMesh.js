@@ -48,7 +48,7 @@ export class AniviveParticleMesh extends Object3D {
   }) {
     super()
     const particles = new Points(
-      gltfObjectToBufferGeometry(gltfObject, distributed, particleCount),
+      gltfObjectToBufferGeometry(gltfObject),
       new PointsMaterial({
         size,
         sizeAttenuation,
