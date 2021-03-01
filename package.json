@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "simple-dropzone": "^0.7.0",
-    "three": "^0.106.1",
+    "three": "^0.125.0",
     "three-orbit-viewer": "^69.3.1"
   },
   "staticFiles": {
